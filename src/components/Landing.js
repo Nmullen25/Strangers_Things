@@ -1,8 +1,7 @@
 import React from "react";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const Landing = (props) => {
-  const {setLoggedIn} = props;
+const Landing = () => {
   const history = useHistory();
 
   const clickRegister = (event) => {
@@ -17,12 +16,11 @@ const Landing = (props) => {
 
   const clickGuest = (event) => {
     event.preventDefault();
-    setLoggedIn(false);
     history.push('/home');
   }
   
   return <>
-    <h1>Landing</h1>
+    <h1>Welcome to Stranger's Things</h1>
     <button type='submit' onClick={clickRegister}>Register</button>
     <button type='submit' onClick={clickLogin}>Login</button>
     <br />

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import BASEURL from './API.js';
 
 const Home = (props) => {
-  const {loggedIn} = props;
   const {guest} = props;
-  const [posts, setposts] = useState([]);
-
+  const [posts, setPosts] = useState([]);
+  
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -13,8 +12,8 @@ const Home = (props) => {
         const result = await resp.json();
         // console.log(result);
         const postArray = result.data.posts
-        setposts(postArray);
-        // console.log(postArray);
+        setPosts(postArray);
+        console.log(postArray);
       } catch (error) {
         console.log(error)
       }
@@ -23,7 +22,7 @@ const Home = (props) => {
   }, [])
 
   return <>
-    {loggedIn? <h1>Welcome Back {guest.username}.</h1> : <h1>Welcome Guest</h1>}
+    {guest? <h1>Welcome Back {guest.username}.</h1> : <h1>Welcome Guest</h1>}
     {posts && posts.map((post, idx) => {
       return (
         <div key={idx}>

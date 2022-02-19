@@ -6,48 +6,43 @@ import { Title, Home, Post, Profile, Register, Login, Landing } from './componen
 
 const Main = () => {
   const [token, setToken] = useState('');
-  const [guest, setGuest] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
-  console.log(loggedIn);
+  const [guest, setGuest] = useState(null);
   console.log(token);
   
-  const Logout = (event) => {
-    event.preventDefault();
-    setLoggedIn(false);
+  const Logout = () => {
     console.log(token);
-    setGuest({});
+    setGuest(null);
     console.log(guest);
-    console.log('loggedin', loggedIn);
   }
 
   return (
     <div>
       <Title />
       <div id='navbar'>
-        <Link id='navlink' to="/home">Home</Link>
-        <Link id='navlink' to="/post">Post</Link>
-        {loggedIn? <Link id='navlink' to="/profile">{guest.username}</Link> : <Link id='navlink' to="/login">Login</Link>}
-        {loggedIn? <Link id='navlink' to="/" onClick={Logout}>Logout</Link> : <Link id='navlink' to="/register">Register</Link>}
+        {guest? <Link id='navlink' to="/home">Home</Link> : null }
+        {guest? <Link id='navlink' to="/post">Post</Link> : null }
+        {guest? <Link id='navlink' to="/profile">{guest.username}</Link> : <Link id='navlink' to="/login">Login</Link>}
+        {guest? <Link id='navlink' to="/" onClick={Logout}>Logout</Link> : <Link id='navlink' to="/register">Register</Link>}
       </div>
       
       <br />
       <Route exact path='/'>
-        <Landing setLoggedIn={setLoggedIn} />
+        <Landing />
       </Route>
       <Route path='/register'>
         <Register setGuest={setGuest} setToken={setToken} />
       </Route>
       <Route path='/login'>
-        <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setGuest={setGuest} setToken={setToken} />
+        <Login setGuest={setGuest} setToken={setToken} />
       </Route>
       <Route path='/home'>
-        <Home guest={guest} loggedIn={loggedIn} />
+        <Home guest={guest} />
       </Route>
       <Route path='/post'>
         <Post token={token}/>
       </Route>
       <Route path='/profile'>
-        <Profile />
+        <Profile token={token}/>
       </Route>
     </div>
   )
