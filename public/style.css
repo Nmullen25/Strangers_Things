@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+#title {
+  text-align: left;
+  background-color: aqua;
+  padding: 10px;
+  margin-top: 0px;
+}
+
+#navbar {
+  text-align: right;
+  margin-right: 50px;
+}
+
+#navlink {
+  margin-left: 20px;
+}

@@ -1,0 +1,48 @@
+API URL: https://strangers-things.herokuapp.com/api/
+
+Stranger's Things Outline:
+
+Pages:
+- Landing page:
+  - welcome the user
+  - login screen with options to register or continue as guest
+
+- Homepage:
+  - show all of the current posts
+  - links at the top for:
+    - login/logout
+    - posts
+    - profile
+    - home
+
+- Post:
+  - make a popup page on the home screen?
+  - form:
+    - Title
+    - Contact
+    - Price
+    - Body
+    - Location
+    - Checkboxes?
+  - button to post the listing
+
+- Profile:
+  - show users posts
+  - edit user info
+  - show messages
+
+- Edit post:
+  - same as the post page but pre-populated
+  - change the post button to update post
+
+- Reminders:
+  - use react routes and components with props
+  - read through the API documentation
+  - Create, Read, Update, Delete
+
+- Routes:
+  - Home
+  - Post
+  - Profile
+  - Login/logout
+  
