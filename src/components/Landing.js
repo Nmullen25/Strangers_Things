@@ -21,11 +21,11 @@ const Landing = () => {
   
   return <>
     <h1>Welcome to Stranger's Things</h1>
-    <button type='submit' onClick={clickRegister}>Register</button>
-    <button type='submit' onClick={clickLogin}>Login</button>
-    <br />
-    <button type='submit' onClick={clickGuest}>Continue as Guest</button>
+    <button id='buttons' type='submit' onClick={clickLogin}>Login</button>
+    <button id='buttons' type='submit' onClick={clickRegister}>Register</button>
     
+    <br />
+    <button id='buttons' type='submit' onClick={clickGuest}>Continue as Guest</button>
   </>
 }
 

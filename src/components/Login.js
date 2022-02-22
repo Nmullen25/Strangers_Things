@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { BASEURL } from '.';
 
 const Login = (props) => {
-  const {setToken, setGuest} = props;
+  const {setToken, setLoggedIn} = props;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
@@ -27,7 +27,7 @@ const Login = (props) => {
       const result = await response.json();
       console.log(result);
       setToken(result.data.token);
-      setGuest({username});
+      setLoggedIn({username});
       console.log(username);
       history.push('/home');
     } catch (error) {

@@ -6,44 +6,46 @@ import { Title, Home, Post, Profile, Register, Login, Landing } from './componen
 
 const Main = () => {
   const [token, setToken] = useState('');
-  const [guest, setGuest] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(null);
   console.log(token);
   
   const Logout = () => {
     console.log(token);
-    setGuest(null);
-    console.log(guest);
+    setLoggedIn(null);
+    console.log(loggedIn);
   }
 
   return (
     <div>
       <Title />
       <div id='navbar'>
-        {guest? <Link id='navlink' to="/home">Home</Link> : null }
-        {guest? <Link id='navlink' to="/post">Post</Link> : null }
-        {guest? <Link id='navlink' to="/profile">{guest.username}</Link> : <Link id='navlink' to="/login">Login</Link>}
-        {guest? <Link id='navlink' to="/" onClick={Logout}>Logout</Link> : <Link id='navlink' to="/register">Register</Link>}
+        {loggedIn? <Link id='navlink' to="/home">Home</Link> : null }
+        {loggedIn? <Link id='navlink' to="/post">Post</Link> : null }
+        {loggedIn? <Link id='navlink' to="/profile">{loggedIn.username}</Link> : <Link id='navlink' to="/login">Login</Link>}
+        {loggedIn? <Link id='navlink' to="/" onClick={Logout}>Logout</Link> : <Link id='navlink' to="/register">Register</Link>}
       </div>
       
       <br />
-      <Route exact path='/'>
-        <Landing />
-      </Route>
-      <Route path='/register'>
-        <Register setGuest={setGuest} setToken={setToken} />
-      </Route>
-      <Route path='/login'>
-        <Login setGuest={setGuest} setToken={setToken} />
-      </Route>
-      <Route path='/home'>
-        <Home guest={guest} />
-      </Route>
-      <Route path='/post'>
-        <Post token={token}/>
-      </Route>
-      <Route path='/profile'>
-        <Profile token={token}/>
-      </Route>
+      <div id='display-area'>
+        <Route exact path='/'>
+          <Landing />
+        </Route>
+        <Route path='/register'>
+          <Register setToken={setToken} />
+        </Route>
+        <Route path='/login'>
+          <Login setLoggedIn={setLoggedIn} setToken={setToken} />
+        </Route>
+        <Route path='/home'>
+          <Home token={token} loggedIn={loggedIn} />
+        </Route>
+        <Route path='/post'>
+          <Post token={token}/>
+        </Route>
+        <Route path='/profile'>
+          <Profile token={token}/>
+        </Route>
+      </div>
     </div>
   )
 }

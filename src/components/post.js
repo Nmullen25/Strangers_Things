@@ -38,21 +38,21 @@ const Post = (props) => {
 
   
   return (
-      <form onSubmit={postListing}>
-        <label htmlFor='title'>Title:</label>
-        <br />
-        <input type='text' name='title' placeholder='' value={title} onChange={(event) => setTitle(event.target.value)}/>
-        <br />
-        <label htmlFor='title'>Price:</label>
-        <br />
-        <input type='number' name='price' placeholder='$' value={price} onChange={(event) => setPrice(event.target.value)}/>
-        <br />
-        <label htmlFor='body'>Description:</label>
-        <br />
-        <input type='text' name='body' placeholder='' value={description} onChange={(event) => setDescription(event.target.value)}/>
-        <br />
-        <button type='submit'>Submit</button>
-      </form>
+    <form onSubmit={postListing}>
+      <label htmlFor='title' id='post'>Title:</label>
+      <br />
+      <input type='text' id='post-input' name='title' placeholder='' value={title} onChange={(event) => setTitle(event.target.value)}/>
+      <br />
+      <label htmlFor='price' id='post'>Price:</label>
+      <br />
+      <input type='number' id='price-input' name='price' placeholder='$' value={price} onChange={(event) => setPrice(event.target.value)}/>
+      <br />
+      <label htmlFor='body' id='post'>Description:</label>
+      <br />
+      <input type='text' id='description-input' name='body' placeholder='' value={description} onChange={(event) => setDescription(event.target.value)}/>
+      <br />
+      <button id='buttons' type='submit'>Submit</button>
+    </form>
   )
 }
 
