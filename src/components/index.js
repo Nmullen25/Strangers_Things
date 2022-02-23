@@ -5,4 +5,5 @@ export { default as Profile } from './profile.js';
 export { default as Register } from './Register.js';
 export { default as Login } from './Login.js';
 export { default as Landing } from './Landing.js';
+export { default as SinglePost } from './SinglePost.js';
 export { default as BASEURL } from './API.js';

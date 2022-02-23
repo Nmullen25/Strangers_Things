@@ -27,6 +27,12 @@ button:hover {
   justify-content: space-evenly;
 }
 
+#messages {
+  display: flex;
+  flex-basis: 33vw;
+  flex-grow: 1;
+}
+
 #navbar {
   text-align: center;
 }
@@ -49,6 +55,16 @@ button:hover {
   margin-bottom: 10px;
 }
 
+#post-message {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+#posts {
+  width: 66vw;
+}
+
 #post-card {
   display: flex;
   height: 50vh;
@@ -60,6 +76,10 @@ button:hover {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+#profile-page {
+  display: flex;
 }
 
 #title {

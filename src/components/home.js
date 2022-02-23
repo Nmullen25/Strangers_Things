@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import BASEURL from './API.js';
+import { useHistory } from 'react-router-dom';
 
 const Home = (props) => {
-  const {loggedIn, token} = props;
-  const [posts, setPosts] = useState([]);
-  const [content, setContent] = useState('');
-  
+  const {loggedIn, posts, setPosts} = props;
+  const history = useHistory();
+
   useEffect(() => {
     const getPosts = async () => {
       try {
         const resp = await fetch(`${BASEURL}posts/`);
         const result = await resp.json();
-        // console.log(result);
         const postArray = result.data.posts
         setPosts(postArray);
         console.log(postArray);
@@ -22,27 +21,9 @@ const Home = (props) => {
     getPosts();
   }, [])
 
-  const sendMessage = async (event, postId) => {
-    event.preventdefault();
-    try {
-      const response = await fetch(`${BASEURL}/posts/${postId}`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          message: {
-            content
-          }
-        })
-      })
-
-      const result = await response.json();
-      console.log(result);
-    } catch (err) {
-      console.log(err);
-    }
+  const clickView = (event, postId) => {
+    event.preventDefault();
+    history.push(`/home/${postId}`);
   }
 
   return <>
@@ -55,10 +36,7 @@ const Home = (props) => {
             <h3>Seller: {post.author.username}</h3>
             <h3>{post.price}</h3>
             <p>{post.description}</p>
-            {(loggedIn && (post.author.username !== loggedIn.username))? <form>
-              <input id='post-message' type='text' name={post._id} value={content} placeholder='Send the Seller a Message' onChange={(event) => setContent(event.target.value)} />
-              <button type='submit' onClick={(event) => sendMessage(event, post._id)}>Send Message</button>
-            </form> : null}
+            <button onClick={(event) => clickView(event, post._id)}>View Post</button>
           </div>
         ) 
       })}

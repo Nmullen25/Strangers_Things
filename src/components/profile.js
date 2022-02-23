@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BASEURL from './API.js';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
 
 const Profile = (props) => {
   const {token} = props;
@@ -87,15 +87,14 @@ const Profile = (props) => {
   }
 
   const postView = () => {
-    return (
+    return <div id='profile-page'>
       <div id='posts'>
-        <h2>Posts</h2>
+        <h2>Your Posts</h2>
         <div id='cards'>
           {userPosts && userPosts.map((post, idx) => {
             return (
               <div key={idx} id="post-card">
                 <h2>{post.title}</h2>
-                <h3>Seller: {post.author.username}</h3>
                 <h3>{post.price}</h3>
                 <p>{post.description}</p>
                 <p>{post._id}</p>
@@ -114,7 +113,12 @@ const Profile = (props) => {
           })}
         </div>
       </div>
-    )
+      <aside id='messages'>
+        <div>
+          <h2>Messages</h2>
+        </div>
+      </aside>
+    </div>
   }
 
   const editView = async (event, postId) => {
