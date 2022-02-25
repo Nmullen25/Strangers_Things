@@ -36,7 +36,7 @@ const Home = (props) => {
             <h3>Seller: {post.author.username}</h3>
             <h3>{post.price}</h3>
             <p>{post.description}</p>
-            <button onClick={(event) => clickView(event, post._id)}>View Post</button>
+            <button id='view-button' onClick={(event) => clickView(event, post._id)}>View Post</button>
           </div>
         ) 
       })}

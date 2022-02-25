@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import {Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
-import { Title, Home, Post, Profile, Register, Login, Landing, SinglePost } from './components';
+import { Title, Home, Post, Profile, Register, Login, Landing, SinglePost, EditView } from './components';
 
 
 const Main = () => {
   const [token, setToken] = useState('');
   const [loggedIn, setLoggedIn] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
   console.log(token);
   
   const Logout = () => {
@@ -47,8 +48,11 @@ const Main = () => {
         <Route path='/post'>
           <Post token={token}/>
         </Route>
-        <Route path='/profile'>
-          <Profile token={token}/>
+        <Route exact path='/profile/:postId'>
+          <EditView token={token} userPosts={userPosts} />
+        </Route>
+        <Route exact path='/profile'>
+          <Profile token={token} userPosts={userPosts} setUserPosts={setUserPosts} />
         </Route>
       </div>
     </div>

@@ -7,13 +7,14 @@ const Post = (props) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState();
+  const [location, setLocation] = useState('');
   const history = useHistory();
 
-  const postListing = async(event) => {
+  const postListing = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${BASEURL}/posts`, {
+      const response = await fetch(`${BASEURL}posts`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +24,8 @@ const Post = (props) => {
           post: {
             title,
             description,
-            price
+            price,
+            location
           }
         })
       })
@@ -38,21 +40,30 @@ const Post = (props) => {
 
   
   return (
-    <form onSubmit={postListing}>
-      <label htmlFor='title' id='post'>Title:</label>
-      <br />
-      <input type='text' id='post-input' name='title' placeholder='' value={title} onChange={(event) => setTitle(event.target.value)}/>
-      <br />
-      <label htmlFor='price' id='post'>Price:</label>
-      <br />
-      <input type='number' id='price-input' name='price' placeholder='$' value={price} onChange={(event) => setPrice(event.target.value)}/>
-      <br />
-      <label htmlFor='body' id='post'>Description:</label>
-      <br />
-      <input type='text' id='description-input' name='body' placeholder='' value={description} onChange={(event) => setDescription(event.target.value)}/>
-      <br />
-      <button id='buttons' type='submit'>Submit</button>
-    </form>
+    <div id="edit-post-card">
+      <h2>Submit Your Post</h2>
+      <div id='edit-card' >
+        <form onSubmit={postListing}>
+          <label htmlFor='title' id='post'>Title:</label>
+          <br />
+          <input type='text' id='post-input' name='title' placeholder='' value={title} onChange={(event) => setTitle(event.target.value)}/>
+          <br />
+          <label htmlFor='location' id='location'>Location:</label>
+          <br />
+          <input type='text' id='location-input' name='location' placeholder='' value={location} onChange={(event) => setLocation(event.target.value)}/>
+          <br />
+          <label htmlFor='price' id='post'>Price:</label>
+          <br />
+          <input type='number' id='price-input' name='price' placeholder='$' value={price} onChange={(event) => setPrice(event.target.value)}/>
+          <br />
+          <label htmlFor='body' id='post'>Description:</label>
+          <br />
+          <input type='text' id='description-input' name='body' placeholder='' value={description} onChange={(event) => setDescription(event.target.value)}/>
+          <br />
+          <button id='buttons' type='submit'>Submit</button>
+        </form>
+      </div>
+    </div>
   )
 }
 

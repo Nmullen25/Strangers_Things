@@ -21,16 +21,57 @@ button:hover {
   background-color: lightgray;
 }
 
+p {
+  overflow: hidden;
+}
+
 #cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-#messages {
+#edit-post-card {
   display: flex;
-  flex-basis: 33vw;
+  flex-direction: column;
+  align-items: center;
+}
+
+#edit-card {
+  display: flex;
+  flex-basis: 200px;
+  max-width: 600px;
   flex-grow: 1;
+  flex-direction: column;
+  margin: 20px;
+  background-color: rgb(141, 207, 230);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+#message {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: rgb(141, 207, 230);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+#messages {
+  text-align: center;
+  flex-basis: 49vw;
+}
+
+#message-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 
 #navbar {
@@ -62,13 +103,13 @@ button:hover {
 }
 
 #posts {
-  width: 66vw;
+  width: 49vw;
 }
 
 #post-card {
   display: flex;
-  height: 50vh;
   flex-basis: 200px;
+  max-width: 400px;
   flex-grow: 1;
   flex-direction: column;
   margin: 20px;
@@ -88,6 +129,10 @@ button:hover {
   padding: 10px;
   margin-top: 0px;
   width: 100vw;
+}
+
+#view-button {
+  bottom: 10px;
 }
 
 #welcome {
