@@ -44,21 +44,21 @@ const Post = (props) => {
       <h2>Submit Your Post</h2>
       <div id='edit-card' >
         <form onSubmit={postListing}>
-          <label htmlFor='title' id='post'>Title:</label>
+          <label htmlFor='title' id='title'>Title:</label>
           <br />
-          <input type='text' id='post-input' name='title' placeholder='' value={title} onChange={(event) => setTitle(event.target.value)}/>
+          <input type='text' id='title-input' name='title' placeholder='' value={title} onChange={(event) => setTitle(event.target.value)}/>
           <br />
           <label htmlFor='location' id='location'>Location:</label>
           <br />
           <input type='text' id='location-input' name='location' placeholder='' value={location} onChange={(event) => setLocation(event.target.value)}/>
           <br />
-          <label htmlFor='price' id='post'>Price:</label>
+          <label htmlFor='price' id='price'>Price:</label>
           <br />
           <input type='number' id='price-input' name='price' placeholder='$' value={price} onChange={(event) => setPrice(event.target.value)}/>
           <br />
-          <label htmlFor='body' id='post'>Description:</label>
+          <label htmlFor='body' id='description'>Description:</label>
           <br />
-          <input type='text' id='description-input' name='body' placeholder='' value={description} onChange={(event) => setDescription(event.target.value)}/>
+          <textarea type='text' cols='25' rows='4' id='description-input' name='body' placeholder='' value={description} onChange={(event) => setDescription(event.target.value)}/>
           <br />
           <button id='buttons' type='submit'>Submit</button>
         </form>

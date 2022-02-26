@@ -8,6 +8,7 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const history = useHistory();
 
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,15 +36,19 @@ const Register = (props) => {
       <div id='navbar'>
         
       </div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='username'>UserName: </label>
-        <input type='text' name='username' placeholder='username' value={username} onChange={(event) => setUsername(event.target.value)}/>
-        <br />
-        <label htmlFor='password'>Password: </label>
-        <input type='password' name='password' placeholder='password' value={password} onChange={(event) => setPassword(event.target.value)}/>
-        <br />
-        <button type='submit'>Register</button>
-      </form>
+      <div id='register'>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='username'>UserName: </label>
+          <br />
+          <input type='text' id='username-input' name='username' placeholder='username' value={username} onChange={(event) => setUsername(event.target.value)}/>
+          <br />
+          <label htmlFor='password'>Password: </label>
+          <br />
+          <input type='password' id='password-input' min-length='5' name='password' placeholder='password' value={password} onChange={(event) => setPassword(event.target.value)}/>
+          <br />
+          <button type='submit'>Register</button>
+        </form>
+      </div>
     </div>
   )
 }

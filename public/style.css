@@ -46,8 +46,19 @@ p {
   margin: 20px;
   background-color: rgb(141, 207, 230);
   border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+#login, #register {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  background-color: rgb(141, 207, 230);
+  border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
 }
 
 #message {
@@ -56,7 +67,7 @@ p {
   margin: 20px;
   background-color: rgb(141, 207, 230);
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
   max-width: 400px;
 }
@@ -123,16 +134,22 @@ p {
   display: flex;
 }
 
-#title {
+#site-title {
   text-align: left;
-  background-color: lightblue;
+  background-color: rgb(141, 207, 230);
   padding: 10px;
   margin-top: 0px;
   width: 100vw;
 }
 
+#title-input, #location-input, #price-input, #description-input, #username-input, #password-input {
+  text-align: center;
+  margin: 10px;
+}
+
 #view-button {
-  bottom: 10px;
+  margin-top: auto;
+  margin-bottom: 10px;
 }
 
 #welcome {

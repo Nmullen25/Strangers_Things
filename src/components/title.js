@@ -2,7 +2,7 @@ import React from 'react';
 
 const Title = () => {
   return (
-    <h1 id='title'>Stranger's Things</h1> 
+    <h1 id='site-title'>The Scrap Heap</h1> 
   )
     
   

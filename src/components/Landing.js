@@ -20,7 +20,7 @@ const Landing = () => {
   }
   
   return <>
-    <h1>Welcome to Stranger's Things</h1>
+    <h1>Welcome to The Scrap Heap</h1>
     <button id='buttons' type='submit' onClick={clickLogin}>Login</button>
     <button id='buttons' type='submit' onClick={clickRegister}>Register</button>
     

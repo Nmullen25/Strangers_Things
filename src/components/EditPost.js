@@ -52,19 +52,19 @@ const EditView = (props) => {
         <form>
           <label htmlFor='title'>Current Title: {activeEdit.title}</label>
           <br />
-          <input type='text' name='title' value={newTitle} onChange={(event) => setNewTitle(event.target.value)}/>
+          <input type='text' id='title-input' name='title' value={newTitle} onChange={(event) => setNewTitle(event.target.value)}/>
           <br />
           <label htmlFor='location'>Current Location: {activeEdit.location}</label>
           <br />
-          <input type='text' name='location' value={newLocation} onChange={(event) => setNewLocation(event.target.value)}/>
+          <input type='text' id='location-input' name='location' value={newLocation} onChange={(event) => setNewLocation(event.target.value)}/>
           <br />
           <label htmlFor='price'>Current Price: ${activeEdit.price}</label>
           <br />
-          <input type='text' name='price' value={newPrice} onChange={(event) => setNewPrice(event.target.value)}/>
+          <input type='text' id='price-input' name='price' value={newPrice} onChange={(event) => setNewPrice(event.target.value)}/>
           <br />
           <label htmlFor='description'>Current Description: {activeEdit.description}</label>
           <br />
-          <input type='text' name='description' value={newDescription} onChange={(event) => setNewDescription(event.target.value)}/>
+          <textarea type='text' cols='25' rows='4' id='description-input' name='description' value={newDescription} onChange={(event) => setNewDescription(event.target.value)}/>
           <br />
           <button type="button" onClick={(event) => editPost(event, activeEdit._id)}>Update</button>
         </form>
