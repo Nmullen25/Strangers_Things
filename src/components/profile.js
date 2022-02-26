@@ -18,24 +18,24 @@ const Profile = (props) => {
       });
 
       const result = await resp.json();
-      console.log(result);
       
       const activePosts = result.data.posts.filter(post => post.active)
       setUserPosts(activePosts);
       const allMessages = result.data.messages;
       const activePostIds = [];
+
       for (let i = 0; i < activePosts.length; i++) {
         activePostIds.push(activePosts[i]._id)
-      }
-      console.log(activePostIds);
+      };
+
       const activeMessages = []
       for (let j = 0; j < allMessages.length; j++) {
         if (activePostIds.includes(allMessages[j].post._id)) {
           activeMessages.push(allMessages[j]);
         }
       }
-      setMessages(activeMessages);
 
+      setMessages(activeMessages);
     } catch (err) {
       console.log(err);
     }
@@ -57,7 +57,6 @@ const Profile = (props) => {
       })
 
       const result = await resp.json();
-      console.log(result);
       getUserPosts();
     } catch (err) {
       console.log(err);

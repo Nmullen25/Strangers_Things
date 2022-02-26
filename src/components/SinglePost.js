@@ -9,13 +9,9 @@ const SinglePost = (props) => {
   const history = useHistory();
   
   const [post] = posts.filter(post => post._id === postId);
-  console.log(postId);
-  console.log(message);
-  console.log(post);
 
   const sendMessage = async (event) => {
     event.preventDefault();
-    console.log('clicked');
     try {
       const response = await fetch(`${BASEURL}posts/${postId}/messages`, {
         method: 'POST',
@@ -31,7 +27,6 @@ const SinglePost = (props) => {
       })
 
       const result = await response.json();
-      console.log(result);
       history.push('/home');
     } catch (err) {
       console.log(err);
@@ -41,7 +36,6 @@ const SinglePost = (props) => {
   const clickBack = () => {
     history.push('/home');
   }
-
 
   return (
     <div key={postId}  id='cards'>

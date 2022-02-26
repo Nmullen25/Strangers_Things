@@ -25,10 +25,8 @@ const Login = (props) => {
       })
 
       const result = await response.json();
-      console.log(result);
       setToken(result.data.token);
       setLoggedIn({username});
-      console.log(username);
       history.push('/home');
     } catch (error) {
       console.log(error)
@@ -43,9 +41,11 @@ const Login = (props) => {
       <div id='login'>
         <form onSubmit={handleSubmit}>
           <label htmlFor='username'>UserName: </label>
+          <br />
           <input type='text' id='username-input' name='username' placeholder='username' value={username} onChange={(event) => setUsername(event.target.value)}/>
           <br />
           <label htmlFor='password'>Password: </label>
+          <br />
           <input type='password' id='password-input' name='password' placeholder='password' value={password} onChange={(event) => setPassword(event.target.value)}/>
           <br />
           <button type='submit'>Login</button>

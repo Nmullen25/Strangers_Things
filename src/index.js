@@ -10,12 +10,9 @@ const Main = () => {
   const [loggedIn, setLoggedIn] = useState(null);
   const [posts, setPosts] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
-  console.log(token);
   
   const Logout = () => {
-    console.log(token);
     setLoggedIn(null);
-    console.log(loggedIn);
   }
 
   return (

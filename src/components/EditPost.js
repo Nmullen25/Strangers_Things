@@ -11,11 +11,9 @@ const EditView = (props) => {
   const [newLocation, setNewLocation] = useState('');
   const history = useHistory();
   
-
   const [activeEdit] = userPosts.filter(post => post._id === postId);
 
   const editPost = async (event, postId) => {
-    console.log("editpost");
     event.preventDefault();
 
     try {
@@ -36,7 +34,6 @@ const EditView = (props) => {
       })
 
       const result = await response.json();
-      console.log(result);
       history.push('/profile');
     } catch (error) {
       console.log(error);
@@ -44,7 +41,6 @@ const EditView = (props) => {
 
   }
 
-  
   return (
     <div id="edit-post-card" key={activeEdit._id}>
       <h2>Edit Your Post</h2>
